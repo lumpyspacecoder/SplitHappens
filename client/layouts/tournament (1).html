@@ -1,0 +1,127 @@
+<template name="tournamentPage">
+
+    {{> tournyHelper}}
+
+    <br>
+
+    <div style="text-align:center">
+        {{> addResult}}
+    </div>
+    <br>
+    <div style="text-align:center">
+        {{> updateResult}}
+    </div>
+    <br><br>
+    <div style="text-align:center">
+        {{> newTournament}}
+    </div>
+
+</template>
+
+<template name="teamPlace">
+    <tr>
+        <td>{{teamPlace}}</td>
+        <td>{{teamName}}</td>
+        <td>{{teamScore}}</td>
+    </tr>
+</template>
+
+<template name="singlePlace">
+    <tr>
+        <td>{{singlePlace}}</td>
+        <td>{{teamName}}</td>
+        <td>{{singleScore}}</td>
+    </tr>
+</template>
+
+<template name="addResult">
+    <form>
+      <input class="text" name="teamName" placeholder="Team Name" size="10">
+      <input class="text" name="teamPlace" placeholder="Team Place" size="7">
+      <input class="text" name="teamScore" placeholder="Team Score" size="7">
+      <input class="text" name="singlePlace" placeholder="Single Place" size="7">
+      <input class="text" name="singleScore" placeholder="Single Score" size="7">
+      <input class="button" type="submit" value="Add Result">
+    </form>
+</template>
+
+
+<template name="updateResult">
+    <form>
+      <input class="text" name="teamName" placeholder="Team Name" size="10">
+      <input class="text" name="teamPlace" placeholder="Team Place" size="7">
+      <input class="text" name="teamScore" placeholder="Team Score" size="7">
+      <input class="text" name="singlePlace" placeholder="Single Place" size="7">
+      <input class="text" name="singleScore" placeholder="Single Score" size="7">
+      <input class="button" type="submit" value="Update Result">
+    </form>
+</template>
+
+<template name="tournyHelper">
+    <div style="text-align:center">
+        <div style="display:inline-block">
+            <h1>Tournament Results: </h1>
+        </div>
+        <div style="display:inline-block">
+            <form>
+                <select name="Tournament" >
+                    <option label="Tournament" selected="selected" disabled="disabled"></option>
+                    {{#each ids}}
+                        <option value="{{tournyID}}">{{tournyID}}</option>
+                    {{/each}}
+                </select>
+                <input class="button" type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+
+
+    <table align = "center" >
+        <tr>
+             <th style="text-align:center"><h3>Name:</h3></th>
+            <th style="text-align:center"><h3>Location:</h3></th>
+            <th style="text-align:center"><h3>Date/Time:</h3></th>
+            <th style="text-align:center"><h3>Sponsor: </h3></th>
+        </tr>
+        <tr>
+            <td style="text-align:center">{{name}}</td>
+            <td style="text-align:center">{{location}}</td>
+            <td style="text-align:center">{{date}}</td>
+            <td style="text-align:center">{{sponsor}}</td>
+        </tr>
+    </table>
+
+    <br>
+
+    <table align="center">
+        <tr>
+            <th>Team Place</th>
+            <th>Team Name</th>
+            <th>Score</th>
+        </tr>
+        {{#each teamPlaces}}
+            {{>teamPlace}}
+        {{/each}}
+    </table>
+
+    <table align="center">
+        <tr>
+            <th>Single Place</th>
+            <th>Team Name</th>
+            <th>Score</th>
+        </tr>
+        {{#each singlePlaces}}
+            {{>singlePlace}}
+        {{/each}}
+    </table>
+</template>
+
+<template name="newTournament">
+    <form>
+      <input class="text" name="tournyName" placeholder="Tournament Name" size="15">
+      <input class="text" name="location" placeholder="Location" size="12">
+      <input class="text" name="date" placeholder="Date" size="12">
+      <input class="text" name="sponsor" placeholder="Sponsor" size="7">
+      <input class="button" type="submit" value="New Tournament">
+    </form>
+</template>

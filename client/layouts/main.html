@@ -1,0 +1,173 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPLIT HAPPENS</title>
+</head>
+
+<body>
+
+
+    <div style="display" align="center"><div style="background-color: #ffffff;">
+    <nav class="tab-bar"><div style="text-align:center"><h1 class="title">
+          <a href="/">SPLIT HAPPENS</a></h1></div></nav>
+
+  
+
+      <div class="off-canvas-wrap docs-wrap" data-offcanvas>
+            <div class="inner-wrap">
+              <section class="main-section">
+                <div class=" medium-10 medium-centered column">
+
+                  {{#if currentUser}}
+                  <div class="display row" style="background-color: #3333;">
+                    <br><div class=" large-20 medium-centered column">  {{> dashboard}}</div></div>
+
+                  {{else}}
+                      {{> register}}
+                      {{> login}}
+                  {{/if}}
+
+                  <div class="display row" style="background-color: #333366;">
+                    <br><div class=" large-20 medium-centered column">{{> orbit }}</div></div></div>
+                </section>
+          </div></div>
+    </div></div>
+</body>
+
+<template name="register">
+
+    <div class=" medium-20 medium-centered column">
+      <div class="display row" style="background-color: #333366;"><div class=" large-4 medium-centered column">
+        <div style= "background-color: #003399;"><span class="show-for-large-up"></span></div>
+        <div style= "text-align:center"><br>
+          <form>
+            <input type="email" name="registerEmail">
+            <input type="password" name="registerPassword">
+            <input type="submit" value="Register">
+          </form></div></div>
+      </div></div>
+</template>
+
+<template name="login">
+
+    <div class=" medium-20 medium-centered column">
+      <div class="display row" style="background-color: #333366;"><div class=" large-4 medium-centered column">
+        <div style= "background-color: #003399;"><span class="show-for-large-up"></span></div>
+        <div style= "text-align:center"><br>
+          <form>
+            <input type="email" name="loginEmail">
+            <input type="password" name="loginPassword">
+            <input type="submit" value="Login">
+          </form></div></div>
+      </div></div>
+</template>
+
+
+
+<template name="dashboard">
+    <div style="text-align:center;">
+      <nav>
+        <ul class="nav">
+
+          <li class="navigate"><a class = "home" href="#">Home</a></li>
+          <li class="navigate"><a class = "playerPage" href="#">Players</a></li>
+          <li class="navigate"><a class = "tournamentPage" href="#">Tournaments</a></li>
+          <li class="navigate"><a class = "gamePage" href="#">Games</a></li>
+        </ul>
+      </nav>
+
+      <section>
+        {{>Template.dynamic template=templateName}}
+        <p id="error" style="color:red;text-align:center"></p>
+        <br>
+      </section>
+
+    <p><a href="#" class="logout">Logout</a></p></div>
+</template>
+
+<template name="playerPage">
+  <table align="center">
+    <caption>
+      <div style="display:inline-block">
+        <h1>Players:</h1>
+      </div>
+      <div style="display:inline-block">
+        {{> order}}
+      </div>
+    </caption>
+    <tr>
+      <th>Player ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Age</th>
+      <th>Gender</th>
+    </tr>
+    {{#each players}}
+      {{> player}}
+    {{/each}}
+  </table>
+
+  <br>
+
+  <div style="text-align:center">
+    {{> add}}
+  </div>
+  <br>
+  <div style="text-align:center">
+    {{> update}}
+  </div>
+</template>
+
+<template name="order">
+  <form>
+    <select name="orderBy" placeholder="Gender" size="1">
+      <option label="Order By" selected="selected" disabled="disabled"></option>
+      <option value="playerID">Player ID</option>
+      <option value="first">First Name</option>
+      <option value="last">Last Name</option>
+      <option value="age">Age</option>
+      <option value="gender">Gender</option>
+    </select>
+    <input class = "button" type= "submit" name="searchSubmit" value="Submit">
+  </form>
+</template>
+
+<template name="add">
+  <form>
+    <input class="text" name="first" placeholder="First Name" size="20">
+    <input class="text" name="last" placeholder="Last Name" size="20">
+    <input class="text" name="age" placeholder="Age" size="3">
+    <select name="gender" placeholder="Gender" size="1">
+      <option label="Gender" selected="selected" disabled="disabled"></option>
+      <option value="M">M</option>
+      <option value="F">F</option>
+    </select>
+    <input class="button" type="submit" value="Add Player">
+  </form>
+</template>
+
+
+<template name="update">
+  <form>
+    <input class="text" name="playerID" placeholder="Player ID" size="7">
+    <input class="text" name="first" placeholder="First Name" size="10">
+    <input class="text" name="last" placeholder="Last Name" size="10">
+    <input class="text" name="age" placeholder="Age" size="3">
+    <select name="gender" placeholder="Gender" size="1">
+      <option label="Gender" selected="selected" disabled="disabled"></option>
+      <option value="M">M</option>
+      <option value="F">F</option>
+    </select>
+    <input class="button" type="submit" value="Update Player">
+  </form>
+</template>
+
+<template name="player">
+  <tr>
+    <td><span title="DELETE"><button class="delete">{{playerID}}</button></span></td>
+    <td>{{firstName}}</td>
+    <td>{{lastName}}</td>
+    <td>{{age}}</td>
+    <td>{{gender}}</td>
+  </tr>
+</template>

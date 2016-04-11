@@ -1,0 +1,90 @@
+html, body{
+    font-family: verdana;
+    height:100%;
+    width:100%;
+    padding:0;
+    margin:0;
+    
+}
+.nav {
+    list-style-type: none;
+    margin: 0;
+    padding:0;
+    overflow:hidden;
+    background-color:#004b66;
+}
+
+li.navigate {
+    float:left;
+    border-right: 1px solid white;
+}
+
+li.navigate a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li.navigate a:hover {
+    background-color: #ffa31a;
+}
+
+section{
+    float:inherit;
+    width:100%;
+    margin: auto;
+}
+
+
+th,td{
+    padding-right:50px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+caption{
+    text-align: left;
+}
+
+.text {
+    padding:8px;
+    background-color:transparent;
+    border: 3px solid #004b66;
+}
+
+.button{
+    font-weight: bold;
+    padding:8px;
+    background-color: #004b66;
+    color:white;
+    border: 3px solid #004b66;
+}
+
+input[type="submit"]:hover{
+    background-color: #ffa31a;
+    color:white;
+    border: 3px solid #ffa31a;
+    cursor:pointer;
+}
+
+select{
+    padding:7px;
+    background-color:transparent;
+    border: 3px solid #004b66;
+}
+
+.delete{
+    background-color: transparent;
+    border:none;
+    font-family: verdana;
+    font-size: medium;
+}
+
+.delete:hover{
+    color:red;
+    cursor:pointer;
+}

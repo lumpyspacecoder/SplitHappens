@@ -1,0 +1,60 @@
+<template name = "gamePage">
+  {{> gameHelper}}
+
+  <div style="text-align:center">
+        {{>gameTable}}
+  </div>
+</template>
+
+<template name ="gameHelper">
+    <div style="text-align:center">
+        <div style="display:inline-block">
+            <h1>Game: </h1>
+        </div>
+        <div style="display:inline-block">
+            <form>
+                <select name="players" >
+                    <option label="Players" selected="selected" disabled="disabled"></option>
+                    {{#each ids}}
+                        <option value="{{playerID}}">{{playerID}}</option>
+                    {{/each}}
+                </select>
+                <input class = "button" type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+</template>
+
+<template name="gameTable">
+    <form>
+        <select name="gameID" >
+            <option label="GameID" selected="selected" disabled="disabled"></option>
+            {{#each games}}
+                <option value="{{gameID}}">{{gameID}}</option>
+            {{/each}}
+        </select>
+        <select name="frame" >
+            <option label="Frame" selected="selected" disabled="disabled"></option>
+            {{#each frames}}
+                <option value="{{frame}}">{{frame}}</option>
+            {{/each}}
+        </select>
+        <select name="attempt" >
+            <option label="Attempt" selected="selected" disabled="disabled"></option>
+            {{#each attempts}}
+                <option value="{{attempt}}">{{attempt}}</option>
+            {{/each}}
+        </select>
+        <input type="checkbox" name="p1">1
+        <input type="checkbox" name="p2">2
+        <input type="checkbox" name="p3">3
+        <input type="checkbox" name="p4">4
+        <input type="checkbox" name="p5">5
+        <input type="checkbox" name="p6">6
+        <input type="checkbox" name="p7">7
+        <input type="checkbox" name="p8">8
+        <input type="checkbox" name="p9">9
+        <input type="checkbox" name="p10">10
+        <input class="button" type="submit" value=&#10004;>
+    </form>
+</template>
