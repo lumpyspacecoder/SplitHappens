@@ -1,1 +1,6 @@
+<<<<<<< HEAD
 settings.json
+=======
+.meteor/local
+.meteor/meteorite
+>>>>>>> f9c8ee492da9584c4e97f2965b90f551a7fd8a89
